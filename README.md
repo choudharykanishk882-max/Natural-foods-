@@ -1,2 +1,1450 @@
 # Natural-foods-
 you get fresh food and fruits on this website 
+
+[naturel_realistic.html](https://github.com/user-attachments/files/26760823/naturel_realistic.html)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naturel – Fresh Organic Grocery</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Satoshi:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C8861A;
+  --gold-light:#E8A020;
+  --gold-pale:#FFF8E8;
+  --cream:#FDFAF4;
+  --cream2:#F5EDD8;
+  --brown:#3D2008;
+  --brown2:#6B3D0F;
+  --green:#2D5A27;
+  --green2:#4A8C41;
+  --green-pale:#EEF6EC;
+  --red:#C0392B;
+  --text:#1C1007;
+  --text2:#6B5C3E;
+  --text3:#9E8A6A;
+  --border:#EDE5D0;
+  --white:#FFFFFF;
+  --shadow-sm:0 1px 4px rgba(61,32,8,.08);
+  --shadow:0 4px 20px rgba(61,32,8,.10);
+  --shadow-lg:0 12px 40px rgba(61,32,8,.16);
+  --radius:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Satoshi',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ── ANNOUNCEMENT BAR ── */
+.announcement{
+  background:var(--green);color:var(--white);
+  text-align:center;padding:9px 16px;font-size:.82rem;
+  font-weight:500;letter-spacing:.3px;position:relative;
+}
+.announcement strong{font-weight:700}
+.ann-close{position:absolute;right:16px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;cursor:pointer}
+
+/* ── NAV ── */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(253,250,244,.96);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5%;height:70px;gap:1.5rem;
+}
+.nav-logo{
+  font-family:'Fraunces',serif;font-size:1.75rem;font-weight:900;
+  color:var(--brown);letter-spacing:-1px;text-decoration:none;
+  flex-shrink:0;
+}
+.nav-logo sup{font-size:.55rem;color:var(--gold);vertical-align:super;letter-spacing:0}
+.nav-search-bar{
+  flex:1;max-width:520px;
+  display:flex;align-items:center;
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:50px;padding:0 16px;gap:10px;
+  transition:border-color .2s,box-shadow .2s;
+}
+.nav-search-bar:focus-within{border-color:var(--gold);box-shadow:0 0 0 3px rgba(200,134,26,.12)}
+.search-icon{color:var(--text3);font-size:1rem;flex-shrink:0}
+.nav-search-bar input{
+  flex:1;border:none;outline:none;background:transparent;
+  font-family:'Satoshi',sans-serif;font-size:.9rem;color:var(--text);
+  padding:11px 0;
+}
+.nav-search-bar input::placeholder{color:var(--text3)}
+.search-btn{
+  background:var(--gold);color:var(--white);border:none;
+  border-radius:50px;padding:6px 18px;font-size:.82rem;
+  font-weight:600;cursor:pointer;flex-shrink:0;transition:background .2s;
+}
+.search-btn:hover{background:var(--brown2)}
+.nav-actions{display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.nav-icon-btn{
+  background:none;border:none;cursor:pointer;
+  width:42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text2);font-size:1.1rem;
+  transition:background .2s;position:relative;
+}
+.nav-icon-btn:hover{background:var(--cream2)}
+.badge{
+  position:absolute;top:6px;right:6px;
+  background:var(--red);color:var(--white);
+  border-radius:50%;width:16px;height:16px;
+  font-size:.6rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.btn-signin{
+  background:var(--brown);color:var(--white);
+  border:none;border-radius:50px;
+  padding:10px 22px;font-family:'Satoshi',sans-serif;
+  font-weight:600;font-size:.85rem;cursor:pointer;
+  transition:all .2s;white-space:nowrap;
+}
+.btn-signin:hover{background:var(--brown2);transform:translateY(-1px)}
+
+/* NAV SECONDARY */
+.nav-secondary{
+  border-top:1px solid var(--border);
+  padding:0 5%;display:flex;align-items:center;gap:0;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav-secondary::-webkit-scrollbar{display:none}
+.nav-cat{
+  padding:10px 18px;font-size:.83rem;font-weight:500;
+  color:var(--text2);border:none;background:none;cursor:pointer;
+  white-space:nowrap;border-bottom:2.5px solid transparent;
+  transition:all .2s;display:flex;align-items:center;gap:6px;
+}
+.nav-cat:hover,.nav-cat.active{color:var(--green);border-bottom-color:var(--green)}
+.nav-cat svg{width:16px;height:16px;opacity:.7}
+
+/* ── HERO ── */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:calc(100vh - 110px);
+  overflow:hidden;position:relative;
+}
+.hero-left{
+  background:linear-gradient(145deg,#F9C84A 0%,#E8980E 60%,#C87010 100%);
+  padding:6% 7% 6% 8%;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.hero-left::before{
+  content:'';position:absolute;bottom:-120px;left:-80px;
+  width:500px;height:500px;
+  background:rgba(255,255,255,.06);border-radius:50%;
+}
+.hero-left::after{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:280px;height:280px;
+  background:rgba(255,255,255,.08);border-radius:50%;
+}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.2);backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.3);
+  border-radius:50px;padding:7px 16px;
+  font-size:.78rem;font-weight:600;color:var(--white);
+  width:fit-content;margin-bottom:1.6rem;
+  animation:fadeUp .6s ease both;
+}
+.hero-pill-dot{width:8px;height:8px;background:#4AE54A;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.6rem,4.5vw,4rem);
+  font-weight:900;color:var(--white);
+  line-height:1.08;margin-bottom:1.2rem;
+  animation:fadeUp .6s .1s ease both;
+}
+.hero h1 em{font-style:italic;display:block}
+.hero-sub{
+  color:rgba(255,255,255,.85);font-size:1rem;
+  line-height:1.75;max-width:400px;margin-bottom:2rem;
+  animation:fadeUp .6s .2s ease both;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+.btn-hero-primary{
+  background:var(--brown);color:var(--white);
+  border:none;border-radius:50px;
+  padding:15px 34px;font-family:'Satoshi',sans-serif;
+  font-size:.95rem;font-weight:700;cursor:pointer;
+  transition:all .25s;
+  box-shadow:0 6px 20px rgba(61,32,8,.35);
+}
+.btn-hero-primary:hover{background:#1C0E02;transform:translateY(-2px);box-shadow:0 10px 28px rgba(61,32,8,.4)}
+.btn-hero-secondary{
+  background:rgba(255,255,255,.18);color:var(--white);
+  border:2px solid rgba(255,255,255,.45);
+  border-radius:50px;padding:15px 28px;
+  font-family:'Satoshi',sans-serif;font-size:.95rem;font-weight:600;
+  cursor:pointer;transition:all .25s;backdrop-filter:blur(8px);
+}
+.btn-hero-secondary:hover{background:rgba(255,255,255,.28)}
+.hero-trust{
+  display:flex;align-items:center;gap:1.5rem;
+  margin-top:2.5rem;animation:fadeUp .6s .4s ease both;
+}
+.trust-avatars{display:flex}
+.trust-avatar{
+  width:34px;height:34px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.6);
+  margin-left:-10px;overflow:hidden;background:var(--cream2);
+  display:flex;align-items:center;justify-content:center;font-size:1rem;
+}
+.trust-avatar:first-child{margin-left:0}
+.trust-text{color:rgba(255,255,255,.9);font-size:.82rem;line-height:1.4}
+.trust-text strong{display:block;font-weight:700}
+.hero-right{
+  position:relative;overflow:hidden;
+  background:#F5EDD8;
+}
+.hero-img{
+  width:100%;height:100%;object-fit:cover;
+  display:block;transition:transform 8s ease;
+}
+.hero-right:hover .hero-img{transform:scale(1.04)}
+.hero-overlay-card{
+  position:absolute;bottom:40px;left:40px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(16px);
+  border-radius:18px;padding:16px 20px;
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:14px;
+  animation:slideUp .7s .5s ease both;
+  max-width:240px;
+}
+.overlay-icon{font-size:2.2rem}
+.overlay-text strong{display:block;font-size:.9rem;color:var(--brown);font-weight:700}
+.overlay-text span{font-size:.78rem;color:var(--text3)}
+.hero-badge{
+  position:absolute;top:40px;right:40px;
+  background:var(--green);color:var(--white);
+  border-radius:50%;width:90px;height:90px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;text-align:center;line-height:1.3;
+  box-shadow:0 4px 16px rgba(45,90,39,.4);
+  animation:spin 12s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-badge span{font-size:1.1rem;font-weight:900}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── MARQUEE ── */
+.marquee-wrap{
+  background:var(--brown);color:var(--white);
+  padding:14px 0;overflow:hidden;
+}
+.marquee-track{
+  display:flex;gap:0;animation:marquee 28s linear infinite;
+  width:max-content;
+}
+.marquee-item{
+  display:flex;align-items:center;gap:10px;
+  padding:0 32px;font-size:.85rem;font-weight:500;
+  color:rgba(255,255,255,.85);white-space:nowrap;
+  border-right:1px solid rgba(255,255,255,.15);
+}
+.marquee-item svg{color:var(--gold-light);flex-shrink:0}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ── SECTION LAYOUT ── */
+section{padding:5rem 5%}
+.sec-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.75rem;font-weight:700;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--green);margin-bottom:.7rem;
+}
+.sec-label::before{content:'';width:20px;height:2px;background:var(--green)}
+h2.sec-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(1.8rem,2.8vw,2.6rem);
+  font-weight:900;color:var(--brown);line-height:1.15;
+}
+h2.sec-title em{font-style:italic;color:var(--gold)}
+.sec-header{
+  display:flex;align-items:flex-end;
+  justify-content:space-between;margin-bottom:2.5rem;gap:1rem;flex-wrap:wrap;
+}
+.sec-header-left{}
+.btn-see-all{
+  background:none;border:2px solid var(--border);
+  color:var(--brown2);border-radius:50px;
+  padding:10px 22px;font-family:'Satoshi',sans-serif;
+  font-weight:600;font-size:.85rem;cursor:pointer;
+  transition:all .2s;white-space:nowrap;flex-shrink:0;
+}
+.btn-see-all:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── CATEGORY CARDS ── */
+.categories-bg{background:var(--white)}
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:1rem;
+}
+.cat-card{
+  background:var(--cream);border-radius:var(--radius);
+  padding:1.4rem 1rem;text-align:center;
+  cursor:pointer;transition:all .25s;
+  border:1.5px solid transparent;
+}
+.cat-card:hover,.cat-card.active{
+  background:var(--gold-pale);
+  border-color:var(--gold);
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
+}
+.cat-img{
+  width:72px;height:72px;border-radius:50%;
+  object-fit:cover;margin:0 auto 0.8rem;
+  display:block;box-shadow:var(--shadow-sm);
+}
+.cat-name{font-size:.83rem;font-weight:600;color:var(--brown);margin-bottom:.2rem}
+.cat-count{font-size:.73rem;color:var(--text3)}
+
+/* ── PRODUCT CARDS ── */
+.products-bg{background:var(--cream)}
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.4rem;
+}
+.product-card{
+  background:var(--white);border-radius:20px;
+  overflow:hidden;box-shadow:var(--shadow-sm);
+  transition:all .3s;cursor:pointer;
+  border:1.5px solid transparent;
+  display:flex;flex-direction:column;
+}
+.product-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-5px);border-color:var(--border)}
+.product-img-wrap{
+  position:relative;overflow:hidden;
+  background:#F5EDD8;
+}
+.product-img{
+  width:100%;height:200px;object-fit:cover;
+  transition:transform .4s;display:block;
+}
+.product-card:hover .product-img{transform:scale(1.07)}
+.product-labels{position:absolute;top:12px;left:12px;display:flex;gap:6px;flex-wrap:wrap}
+.label{
+  border-radius:50px;padding:3px 10px;
+  font-size:.68rem;font-weight:700;letter-spacing:.3px;
+}
+.label-organic{background:var(--green);color:var(--white)}
+.label-sale{background:var(--red);color:var(--white)}
+.label-new{background:var(--gold-light);color:var(--white)}
+.label-best{background:var(--brown);color:var(--white)}
+.btn-wishlist{
+  position:absolute;top:12px;right:12px;
+  background:rgba(255,255,255,.9);
+  border:none;border-radius:50%;
+  width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;cursor:pointer;
+  box-shadow:var(--shadow-sm);transition:all .2s;
+  color:var(--text3);
+}
+.btn-wishlist:hover{background:var(--white);color:var(--red);transform:scale(1.1)}
+.btn-wishlist.active{color:var(--red)}
+.product-body{padding:1.2rem;flex:1;display:flex;flex-direction:column}
+.product-meta{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:.5rem;
+}
+.product-rating{color:var(--gold);font-size:.8rem}
+.product-reviews{font-size:.75rem;color:var(--text3)}
+.product-name{
+  font-family:'Fraunces',serif;
+  font-size:1.05rem;font-weight:700;color:var(--brown);
+  margin-bottom:.3rem;line-height:1.3;
+}
+.product-weight{font-size:.78rem;color:var(--text3);margin-bottom:.8rem}
+.product-footer{
+  display:flex;align-items:center;
+  justify-content:space-between;margin-top:auto;
+}
+.product-pricing{}
+.product-price{font-size:1.15rem;font-weight:700;color:var(--brown)}
+.product-was{font-size:.8rem;color:var(--text3);text-decoration:line-through;margin-left:4px}
+.product-per{font-size:.73rem;color:var(--text3);display:block}
+.btn-add-cart{
+  background:var(--green);color:var(--white);
+  border:none;border-radius:50px;
+  width:38px;height:38px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;cursor:pointer;
+  transition:all .2s;flex-shrink:0;
+  box-shadow:0 3px 10px rgba(45,90,39,.3);
+}
+.btn-add-cart:hover{background:var(--green2);transform:scale(1.1)}
+.btn-add-cart.added{background:var(--gold);animation:pop .3s ease}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.3)}100%{transform:scale(1)}}
+
+/* ── PROMO BANNER ── */
+.promo-bg{background:var(--white);padding:0 5% 5rem}
+.promo-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:1.5rem}
+.promo-card{
+  border-radius:24px;overflow:hidden;
+  position:relative;min-height:260px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:2rem;cursor:pointer;
+}
+.promo-card img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;transition:transform .5s;
+}
+.promo-card:hover img{transform:scale(1.05)}
+.promo-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(30,12,2,.75) 0%,rgba(30,12,2,.1) 60%);
+}
+.promo-content{position:relative;z-index:2}
+.promo-tag{
+  display:inline-block;background:var(--gold);color:var(--white);
+  border-radius:50px;padding:4px 14px;
+  font-size:.72rem;font-weight:700;letter-spacing:.8px;
+  text-transform:uppercase;margin-bottom:.8rem;
+}
+.promo-card h3{
+  font-family:'Fraunces',serif;
+  font-size:1.5rem;font-weight:900;color:var(--white);
+  margin-bottom:.4rem;line-height:1.2;
+}
+.promo-card p{font-size:.85rem;color:rgba(255,255,255,.8);margin-bottom:1rem}
+.btn-promo{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--white);color:var(--brown);
+  border:none;border-radius:50px;
+  padding:9px 20px;font-family:'Satoshi',sans-serif;
+  font-size:.82rem;font-weight:700;cursor:pointer;transition:all .2s;
+}
+.btn-promo:hover{background:var(--gold);color:var(--white)}
+
+/* ── WHY US ── */
+.why-bg{background:var(--green);padding:5rem 5%}
+.why-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:5rem;align-items:center;
+}
+.why-left .sec-label{color:rgba(255,255,255,.7)}
+.why-left .sec-label::before{background:rgba(255,255,255,.5)}
+.why-left h2{color:var(--white)}
+.why-left h2 em{color:#9FE09F}
+.why-left p{color:rgba(255,255,255,.75);line-height:1.8;margin:1.2rem 0 2rem;font-size:.95rem}
+.why-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.why-stat{background:rgba(255,255,255,.1);border-radius:16px;padding:1.4rem;border:1px solid rgba(255,255,255,.12)}
+.why-stat-num{
+  font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;
+  color:#9FE09F;line-height:1;margin-bottom:.3rem;
+}
+.why-stat-label{font-size:.82rem;color:rgba(255,255,255,.7)}
+.why-right{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.why-feature{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;padding:1.6rem;
+  transition:background .2s;
+}
+.why-feature:hover{background:rgba(255,255,255,.14)}
+.why-feature-icon{
+  width:48px;height:48px;background:rgba(255,255,255,.12);
+  border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;margin-bottom:1rem;
+}
+.why-feature h4{color:var(--white);font-weight:700;margin-bottom:.5rem;font-size:.95rem}
+.why-feature p{color:rgba(255,255,255,.6);font-size:.82rem;line-height:1.6}
+
+/* ── TESTIMONIALS ── */
+.testimonials-bg{background:var(--cream2)}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.tcard{
+  background:var(--white);border-radius:20px;
+  padding:1.8rem;box-shadow:var(--shadow-sm);
+  transition:box-shadow .2s;
+}
+.tcard:hover{box-shadow:var(--shadow)}
+.tcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem}
+.tcard-avatar{
+  width:46px;height:46px;border-radius:50%;
+  object-fit:cover;border:2px solid var(--border);
+}
+.tcard-stars{color:var(--gold);font-size:.85rem}
+.tcard-quote{
+  font-family:'Fraunces',serif;
+  font-size:1rem;color:var(--brown);
+  line-height:1.65;margin-bottom:1.2rem;
+  font-style:italic;
+}
+.tcard-name{font-weight:700;font-size:.88rem;color:var(--brown)}
+.tcard-sub{font-size:.75rem;color:var(--text3)}
+
+/* ── BLOG ── */
+.blog-bg{background:var(--white)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.blog-card{border-radius:20px;overflow:hidden;cursor:pointer;transition:box-shadow .3s}
+.blog-card:hover{box-shadow:var(--shadow-lg)}
+.blog-img{width:100%;height:200px;object-fit:cover;display:block;transition:transform .4s}
+.blog-card:hover .blog-img{transform:scale(1.04)}
+.blog-body{padding:1.4rem 0 .5rem}
+.blog-tag{
+  display:inline-block;background:var(--green-pale);
+  color:var(--green);border-radius:50px;
+  padding:3px 12px;font-size:.72rem;font-weight:700;
+  margin-bottom:.8rem;
+}
+.blog-title{
+  font-family:'Fraunces',serif;font-size:1.1rem;
+  font-weight:700;color:var(--brown);line-height:1.35;
+  margin-bottom:.7rem;
+}
+.blog-meta{font-size:.78rem;color:var(--text3)}
+
+/* ── NEWSLETTER ── */
+.newsletter{
+  background:linear-gradient(135deg,var(--brown) 0%,#2A1205 100%);
+  padding:5rem 5%;text-align:center;position:relative;overflow:hidden;
+}
+.newsletter::before{
+  content:'';position:absolute;top:-150px;left:-150px;
+  width:500px;height:500px;
+  background:rgba(200,134,26,.08);border-radius:50%;
+}
+.newsletter::after{
+  content:'';position:absolute;bottom:-150px;right:-150px;
+  width:500px;height:500px;
+  background:rgba(200,134,26,.06);border-radius:50%;
+}
+.newsletter-inner{position:relative;z-index:2;max-width:580px;margin:0 auto}
+.newsletter .sec-label{color:rgba(255,255,255,.6);justify-content:center}
+.newsletter .sec-label::before{background:rgba(255,255,255,.4)}
+.newsletter h2{color:var(--white);margin-bottom:1rem}
+.newsletter p{color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:2rem}
+.nl-form{
+  display:flex;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:50px;padding:6px;
+  gap:0;max-width:480px;margin:0 auto;
+}
+.nl-input{
+  flex:1;background:transparent;border:none;outline:none;
+  color:var(--white);font-family:'Satoshi',sans-serif;
+  font-size:.9rem;padding:10px 18px;
+}
+.nl-input::placeholder{color:rgba(255,255,255,.45)}
+.nl-btn{
+  background:var(--gold);color:var(--white);
+  border:none;border-radius:50px;
+  padding:11px 28px;font-family:'Satoshi',sans-serif;
+  font-weight:700;font-size:.88rem;cursor:pointer;
+  transition:all .2s;flex-shrink:0;
+}
+.nl-btn:hover{background:var(--gold-light)}
+.nl-fine{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:1rem}
+
+/* ── FOOTER ── */
+footer{background:#1C0E02;color:rgba(255,255,255,.6);padding:4rem 5% 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem}
+.footer-logo{
+  font-family:'Fraunces',serif;font-size:1.6rem;
+  font-weight:900;color:var(--white);margin-bottom:1rem;display:block;
+}
+.footer-logo sup{font-size:.5rem;color:var(--gold-light);vertical-align:super}
+.footer-about{font-size:.83rem;line-height:1.75;margin-bottom:1.5rem}
+.footer-social{display:flex;gap:10px}
+.soc-btn{
+  width:38px;height:38px;background:rgba(255,255,255,.08);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;cursor:pointer;transition:background .2s;border:none;color:rgba(255,255,255,.7);
+}
+.soc-btn:hover{background:var(--gold);color:var(--white)}
+.footer-col h5{color:var(--white);font-weight:700;font-size:.9rem;margin-bottom:1.2rem}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:.65rem}
+.footer-col a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.83rem;transition:color .2s}
+.footer-col a:hover{color:var(--gold-light)}
+.footer-app p{font-size:.82rem;color:rgba(255,255,255,.5);margin-bottom:.8rem}
+.app-badges{display:flex;flex-direction:column;gap:.6rem}
+.app-badge{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;padding:8px 14px;cursor:pointer;transition:background .2s;
+}
+.app-badge:hover{background:rgba(255,255,255,.14)}
+.app-badge-icon{font-size:1.4rem}
+.app-badge-text strong{display:block;color:var(--white);font-size:.8rem;font-weight:600}
+.app-badge-text span{font-size:.7rem;color:rgba(255,255,255,.5)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.07);
+  padding-top:1.8rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.footer-bottom p{font-size:.78rem}
+.footer-bottom-links{display:flex;gap:1.5rem}
+.footer-bottom-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.78rem;transition:color .2s}
+.footer-bottom-links a:hover{color:var(--gold-light)}
+.payment-icons{display:flex;gap:.5rem;align-items:center}
+.pay-icon{
+  background:rgba(255,255,255,.08);border-radius:6px;
+  padding:4px 10px;font-size:.72rem;color:rgba(255,255,255,.6);font-weight:600;
+}
+
+/* ── CART DRAWER ── */
+.cart-backdrop{
+  position:fixed;inset:0;background:rgba(28,14,2,.5);
+  z-index:900;opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.cart-backdrop.open{opacity:1;pointer-events:all}
+.cart-drawer{
+  position:fixed;right:0;top:0;bottom:0;width:400px;
+  background:var(--white);z-index:901;
+  transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+  box-shadow:-8px 0 40px rgba(28,14,2,.15);
+}
+.cart-drawer.open{transform:translateX(0)}
+.cart-header{
+  padding:1.5rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cart-title{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--brown)}
+.cart-close{
+  background:var(--cream);border:none;border-radius:50%;
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1.1rem;color:var(--text2);transition:background .2s;
+}
+.cart-close:hover{background:var(--cream2)}
+.cart-body{flex:1;overflow-y:auto;padding:1.2rem 1.5rem}
+.cart-empty{
+  text-align:center;padding:4rem 0;
+}
+.cart-empty-icon{font-size:4rem;margin-bottom:1rem}
+.cart-empty h4{font-family:'Fraunces',serif;color:var(--brown);margin-bottom:.5rem}
+.cart-empty p{font-size:.85rem;color:var(--text3)}
+.cart-item{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:.9rem 0;border-bottom:1px solid var(--border);
+}
+.cart-item-img{
+  width:72px;height:72px;border-radius:12px;
+  object-fit:cover;flex-shrink:0;border:1px solid var(--border);
+}
+.cart-item-info{flex:1}
+.cart-item-name{font-weight:600;font-size:.9rem;color:var(--brown);margin-bottom:.2rem}
+.cart-item-weight{font-size:.75rem;color:var(--text3);margin-bottom:.6rem}
+.cart-item-controls{display:flex;align-items:center;gap:8px}
+.qty-btn{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--cream);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:.9rem;font-weight:700;color:var(--brown);
+  transition:background .2s;
+}
+.qty-btn:hover{background:var(--cream2)}
+.qty-num{font-size:.9rem;font-weight:600;color:var(--brown);min-width:20px;text-align:center}
+.cart-item-price{font-weight:700;color:var(--brown);font-size:.95rem;flex-shrink:0}
+.btn-remove{
+  background:none;border:none;color:var(--text3);font-size:.8rem;
+  cursor:pointer;padding:0;margin-top:.3rem;transition:color .2s;
+}
+.btn-remove:hover{color:var(--red)}
+.cart-footer{padding:1.5rem;border-top:1px solid var(--border)}
+.cart-subtotal{
+  display:flex;justify-content:space-between;
+  font-size:.9rem;color:var(--text2);margin-bottom:.6rem;
+}
+.cart-subtotal.total{color:var(--brown);font-weight:700;font-size:1rem;border-top:1px solid var(--border);padding-top:.8rem;margin-top:.4rem}
+.btn-checkout{
+  width:100%;background:var(--green);color:var(--white);
+  border:none;border-radius:50px;
+  padding:16px;font-family:'Satoshi',sans-serif;
+  font-weight:700;font-size:.95rem;cursor:pointer;
+  margin-top:1rem;transition:all .2s;
+}
+.btn-checkout:hover{background:var(--green2)}
+
+/* ── TOAST ── */
+.toast-wrap{
+  position:fixed;bottom:24px;right:24px;z-index:1000;
+  display:flex;flex-direction:column;gap:.7rem;pointer-events:none;
+}
+.toast{
+  background:var(--brown);color:var(--white);
+  border-radius:14px;padding:14px 20px;
+  display:flex;align-items:center;gap:12px;
+  box-shadow:var(--shadow-lg);font-size:.88rem;
+  animation:toastIn .35s cubic-bezier(.34,1.56,.64,1) both;
+  pointer-events:all;max-width:320px;
+}
+.toast.removing{animation:toastOut .3s ease forwards}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes toastOut{to{opacity:0;transform:translateY(10px) scale(.95)}}
+.toast-img{width:40px;height:40px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.toast-text strong{display:block;font-weight:700;font-size:.85rem}
+.toast-text span{color:rgba(255,255,255,.65);font-size:.78rem}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .cat-grid{grid-template-columns:repeat(3,1fr)}
+  .promo-grid{grid-template-columns:1fr}
+  .why-inner{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .blog-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:600px){
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-top{gap:.8rem}
+  .btn-signin{display:none}
+  .cart-drawer{width:100%}
+  .nav-secondary{padding:0 4%}
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announcement" id="ann">
+  🌿 <strong>Free delivery</strong> on orders over ₹499 · Use code <strong>FRESH20</strong> for 20% off your first order
+  <button class="ann-close" onclick="document.getElementById('ann').remove()">✕</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-top">
+    <a href="#" class="nav-logo">naturel<sup>®</sup></a>
+    <div class="nav-search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search for fruits, vegetables, nuts…" id="searchInput">
+      <button class="search-btn">Search</button>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" title="Wishlist">
+        ♡
+      </button>
+      <button class="nav-icon-btn" title="Cart" id="cartToggle">
+        🛒
+        <span class="badge" id="cartCount">0</span>
+      </button>
+      <button class="btn-signin">Sign In</button>
+    </div>
+  </div>
+  <div class="nav-secondary">
+    <button class="nav-cat active">🏠 Home</button>
+    <button class="nav-cat">🍎 Fresh Fruits</button>
+    <button class="nav-cat">🥦 Vegetables</button>
+    <button class="nav-cat">🥜 Nuts & Dry Fruits</button>
+    <button class="nav-cat">🧃 Cold Pressed Juices</button>
+    <button class="nav-cat">🌾 Grains & Cereals</button>
+    <button class="nav-cat">🍯 Honey & Spreads</button>
+    <button class="nav-cat">💊 Superfoods</button>
+    <button class="nav-cat">🎁 Gift Hampers</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-pill">
+      <div class="hero-pill-dot"></div>
+      Season Fresh · Farm to Door
+    </div>
+    <h1>Your Daily Dose<br>of <em>Nature's Best</em></h1>
+    <p class="hero-sub">Handpicked organic produce delivered to your door within 4 hours. Sourced from 50+ certified farms across India, every single day.</p>
+    <div class="hero-actions">
+      <button class="btn-hero-primary">Shop Now →</button>
+      <button class="btn-hero-secondary">View Bundles</button>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-avatars">
+        <div class="trust-avatar">😊</div>
+        <div class="trust-avatar">😃</div>
+        <div class="trust-avatar">🙂</div>
+        <div class="trust-avatar">😄</div>
+      </div>
+      <div class="trust-text">
+        <strong>48,000+ Happy Customers</strong>
+        Rated 4.9 ★ across 12,000 reviews
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img
+      class="hero-img"
+      src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=900&q=80"
+      alt="Fresh organic produce"
+    >
+    <div class="hero-overlay-card">
+      <div class="overlay-icon">🚚</div>
+      <div class="overlay-text">
+        <strong>Same-Day Delivery</strong>
+        <span>Order by 11 AM · Delivered by 5 PM</span>
+      </div>
+    </div>
+    <div class="hero-badge">100%<span>ORGANIC</span>CERTIFIED</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack">
+    <div class="marquee-item">🚚 Free delivery above ₹499</div>
+    <div class="marquee-item">🌱 100% Certified Organic</div>
+    <div class="marquee-item">❄️ Cold-chain preserved freshness</div>
+    <div class="marquee-item">♻️ Zero plastic packaging</div>
+    <div class="marquee-item">🌾 50+ partner farms</div>
+    <div class="marquee-item">⭐ 4.9 / 5 customer rating</div>
+    <div class="marquee-item">🔄 Easy 7-day returns</div>
+    <div class="marquee-item">📱 Live order tracking</div>
+    <!-- duplicate for seamless loop -->
+    <div class="marquee-item">🚚 Free delivery above ₹499</div>
+    <div class="marquee-item">🌱 100% Certified Organic</div>
+    <div class="marquee-item">❄️ Cold-chain preserved freshness</div>
+    <div class="marquee-item">♻️ Zero plastic packaging</div>
+    <div class="marquee-item">🌾 50+ partner farms</div>
+    <div class="marquee-item">⭐ 4.9 / 5 customer rating</div>
+    <div class="marquee-item">🔄 Easy 7-day returns</div>
+    <div class="marquee-item">📱 Live order tracking</div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories-bg">
+  <div class="sec-header">
+    <div class="sec-header-left">
+      <div class="sec-label">Browse</div>
+      <h2 class="sec-title">Shop by <em>Category</em></h2>
+    </div>
+    <button class="btn-see-all">View all categories →</button>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card active" onclick="setActiveCat(this)">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=200&q=80" alt="Fruits">
+      <div class="cat-name">Fresh Fruits</div>
+      <div class="cat-count">48 products</div>
+    </div>
+    <div class="cat-card" onclick="setActiveCat(this)">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=200&q=80" alt="Vegetables">
+      <div class="cat-name">Vegetables</div>
+      <div class="cat-count">64 products</div>
+    </div>
+    <div class="cat-card" onclick="setActiveCat(this)">
+      <img src="organic-mixed-nuts-food-photography-flat-lay.jpg" alt="Nuts" class="cat-img">
+      <div class="cat-name">Nuts & Seeds</div>
+      <div class="cat-count">32 products</div>
+    </div>
+    <div class="cat-card" onclick="setActiveCat(this)">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1622597467836-f3285f2131b8?w=200&q=80" alt="Juices">
+      <div class="cat-name">Cold Pressed Juices</div>
+      <div class="cat-count">16 products</div>
+    </div>
+    <div class="cat-card" onclick="setActiveCat(this)">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=200&q=80" alt="Grains">
+      <div class="cat-name">Grains & Cereals</div>
+      <div class="cat-count">28 products</div>
+    </div>
+    <div class="cat-card" onclick="setActiveCat(this)">
+      <img class="cat-img" src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=200&q=80" alt="Superfoods">
+      <div class="cat-name">Superfoods</div>
+      <div class="cat-count">20 products</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products-bg">
+  <div class="sec-header">
+    <div class="sec-header-left">
+      <div class="sec-label">Today's Picks</div>
+      <h2 class="sec-title">Fresh <em>Arrivals</em></h2>
+    </div>
+    <button class="btn-see-all">View all →</button>
+  </div>
+  <div class="product-grid" id="productGrid">
+
+    <div class="product-card" data-id="1" data-name="Organic Strawberries" data-price="349" data-weight="500g punnet" data-img="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&q=80">
+      <div class="product-img-wrap">
+        <img class="product-img" src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&q=80" alt="Strawberries">
+        <div class="product-labels"><span class="label label-organic">Organic</span><span class="label label-best">Best Seller</span></div>
+        <button class="btn-wishlist" onclick="toggleWish(this)">♡</button>
+      </div>
+      <div class="product-body">
+        <div class="product-meta"><span class="product-rating">★★★★★</span><span class="product-reviews">(284)</span></div>
+        <div class="product-name">Fresh Strawberries</div>
+        <div class="product-weight">500g · Mahabaleshwar Farm</div>
+        <div class="product-footer">
+          <div class="product-pricing">
+            <span class="product-price">₹349</span><span class="product-was">₹420</span>
+            <span class="product-per">₹6.98 / 10g</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="3" data-name="Hass Avocados" data-price="249" data-weight="Pack of 2" data-img="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&q=80">
+      <div class="product-img-wrap">
+        <img class="product-img" src="https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=400&q=80" alt="Avocado">
+        <div class="product-labels"><span class="label label-new">New</span></div>
+        <button class="btn-wishlist" onclick="toggleWish(this)">♡</button>
+      </div>
+      <div class="product-body">
+        <div class="product-meta"><span class="product-rating">★★★★☆</span><span class="product-reviews">(97)</span></div>
+        <div class="product-name">Hass Avocados</div>
+        <div class="product-weight">Pack of 2 · Ready to eat</div>
+        <div class="product-footer">
+          <div class="product-pricing">
+            <span class="product-price">₹249</span>
+            <span class="product-per">₹124.50 / piece</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="4" data-name="Blueberries" data-price="499" data-weight="125g box" data-img="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&q=80">
+      <div class="product-img-wrap">
+        <img class="product-img" src="https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&q=80" alt="Blueberries">
+        <div class="product-labels"><span class="label label-organic">Organic</span><span class="label label-sale">−18%</span></div>
+        <button class="btn-wishlist" onclick="toggleWish(this)">♡</button>
+      </div>
+      <div class="product-body">
+        <div class="product-meta"><span class="product-rating">★★★★★</span><span class="product-reviews">(341)</span></div>
+        <div class="product-name">Fresh Blueberries</div>
+        <div class="product-weight">125g · Antioxidant-rich</div>
+        <div class="product-footer">
+          <div class="product-pricing">
+            <span class="product-price">₹499</span><span class="product-was">₹610</span>
+            <span class="product-per">₹3.99 / g</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="5" data-name="Navel Oranges" data-price="189" data-weight="1kg bag" data-img="https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=80">
+      <div class="product-img-wrap">
+        <img class="product-img" src="https://images.unsplash.com/photo-1547514701-42782101795e?w=400&q=80" alt="Oranges">
+        <div class="product-labels"><span class="label label-organic">Organic</span></div>
+        <button class="btn-wishlist" onclick="toggleWish(this)">♡</button>
+      </div>
+      <div class="product-body">
+        <div class="product-meta"><span class="product-rating">★★★★★</span><span class="product-reviews">(628)</span></div>
+        <div class="product-name">Navel Oranges</div>
+        <div class="product-weight">1kg · Sweet & Seedless</div>
+        <div class="product-footer">
+          <div class="product-pricing">
+            <span class="product-price">₹189</span>
+            <span class="product-per">₹1.89 / 10g</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="6" data-name="Mixed Salad Greens" data-price="129" data-weight="200g bag" data-img="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80">
+      <div class="product-img-wrap">
+        <img class="product-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&q=80" alt="Salad">
+        <div class="product-labels"><span class="label label-organic">Organic</span></div>
+        <button class="btn-wishlist" onclick="toggleWish(this)">♡</button>
+      </div>
+      <div class="product-body">
+        <div class="product-meta"><span class="product-rating">★★★★☆</span><span class="product-reviews">(183)</span></div>
+        <div class="product-name">Mixed Salad Greens</div>
+        <div class="product-weight">200g · Washed & ready</div>
+        <div class="product-footer">
+          <div class="product-pricing">
+            <span class="product-price">₹129</span>
+            <span class="product-per">₹0.65 / g</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="7" data-name="Medjool Dates" data-price="449" data-weight="500g box" data-img="https://images.unsplash.com/photo-1598569304739-8ab9a1fb0e97?w=400&q=80">
+      <div class="product-img-wrap">
+        <img class="product-img" src="https://images.unsplash.com/photo-1598569304739-8ab9a1fb0e97?w=400&q=80" alt="Dates">
+        <div class="product-labels"><span class="label label-best">Best Seller</span></div>
+        <button class="btn-wishlist" onclick="toggleWish(this)">♡</button>
+      </div>
+      <div class="product-body">
+        <div class="product-meta"><span class="product-rating">★★★★★</span><span class="product-reviews">(407)</span></div>
+        <div class="product-name">Medjool Dates</div>
+        <div class="product-weight">500g · Premium Khajoor</div>
+        <div class="product-footer">
+          <div class="product-pricing">
+            <span class="product-price">₹449</span>
+            <span class="product-per">₹0.90 / g</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card" data-id="8" data-name="Cherry Tomatoes" data-price="149" data-weight="400g punnet" data-img="https://images.unsplash.com/photo-1558818498-28c1e002b655?w=400&q=80">
+      <div class="product-img-wrap">
+        <img class="product-img" src="https://images.unsplash.com/photo-1558818498-28c1e002b655?w=400&q=80" alt="Tomatoes">
+        <div class="product-labels"><span class="label label-organic">Organic</span></div>
+        <button class="btn-wishlist" onclick="toggleWish(this)">♡</button>
+      </div>
+      <div class="product-body">
+        <div class="product-meta"><span class="product-rating">★★★★★</span><span class="product-reviews">(219)</span></div>
+        <div class="product-name">Cherry Tomatoes</div>
+        <div class="product-weight">400g · Vine-ripened</div>
+        <div class="product-footer">
+          <div class="product-pricing">
+            <span class="product-price">₹149</span>
+            <span class="product-per">₹0.37 / g</span>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(this)">+</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMO BANNERS -->
+<div class="promo-bg">
+  <div class="promo-grid">
+    <div class="promo-card">
+      <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=900&q=80" alt="Fresh Fruits">
+      <div class="promo-overlay"></div>
+      <div class="promo-content">
+        <div class="promo-tag">Limited Time</div>
+        <h3>Summer Fruit Festival</h3>
+        <p>Up to 40% off on seasonal mangoes, lychees & more</p>
+        <button class="btn-promo">Shop Sale →</button>
+      </div>
+    </div>
+    <div style="display:grid;gap:1.5rem">
+      <div class="promo-card" style="min-height:170px">
+        <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?w=600&q=80" alt="Smoothie">
+        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <div class="promo-tag">New</div>
+          <h3 style="font-size:1.2rem">Smoothie Kits</h3>
+          <p style="font-size:.8rem">Pre-portioned, frozen & ready</p>
+          <button class="btn-promo" style="padding:7px 16px;font-size:.78rem">Shop →</button>
+        </div>
+      </div>
+      <div class="promo-card" style="min-height:170px">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80" alt="Grocery">
+        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <div class="promo-tag">Bundle</div>
+          <h3 style="font-size:1.2rem">Weekly Veggie Box</h3>
+          <p style="font-size:.8rem">Save 25% vs buying separately</p>
+          <button class="btn-promo" style="padding:7px 16px;font-size:.78rem">Shop →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-bg">
+  <div class="why-inner">
+    <div class="why-left">
+      <div class="sec-label">Our Promise</div>
+      <h2 class="sec-title" style="color:#fff">Farm Fresh, Every<br><em style="color:#9FE09F">Single Day</em></h2>
+      <p>We cut out the middlemen entirely. Our partner farmers harvest in the early morning, we cold-pack by 8 AM, and it's at your doorstep by evening. No warehousing, no wilting, no compromise.</p>
+      <button class="btn-hero-secondary" style="width:fit-content">Our Story →</button>
+      <div class="why-stats">
+        <div class="why-stat">
+          <div class="why-stat-num">50+</div>
+          <div class="why-stat-label">Certified Farm Partners</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">4hrs</div>
+          <div class="why-stat-label">Farm to Doorstep</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">48k+</div>
+          <div class="why-stat-label">Happy Customers</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">4.9★</div>
+          <div class="why-stat-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="why-right">
+      <div class="why-feature">
+        <div class="why-feature-icon">🌱</div>
+        <h4>100% Organic</h4>
+        <p>Every product is certified organic — no pesticides, no GMOs, no compromises.</p>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">❄️</div>
+        <h4>Cold-Chain Delivery</h4>
+        <p>Temperature-controlled from harvest to handoff preserves peak freshness.</p>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">♻️</div>
+        <h4>Zero Plastic</h4>
+        <p>All packaging is 100% biodegradable. Better for you, better for the planet.</p>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">🔄</div>
+        <h4>Freshness Guarantee</h4>
+        <p>Not happy? We'll replace or refund — no questions asked, within 24 hours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-bg">
+  <div class="sec-header">
+    <div class="sec-header-left">
+      <div class="sec-label">Reviews</div>
+      <h2 class="sec-title">What Our Customers <em>Love</em></h2>
+    </div>
+    <button class="btn-see-all">Read all reviews →</button>
+  </div>
+  <div class="testimonials-grid">
+    <div class="tcard">
+      <div class="tcard-top">
+        <img class="tcard-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Priya">
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <div class="tcard-quote">"The strawberries arrived so fresh they smelled like a garden. I've been ordering weekly for 6 months and they've never disappointed once."</div>
+      <div class="tcard-name">Priya Sharma</div>
+      <div class="tcard-sub">Verified Buyer · New Delhi</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top">
+        <img class="tcard-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Arjun">
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <div class="tcard-quote">"As a nutritionist, I recommend naturel to all my clients. The quality is genuinely superior — you can taste the difference from supermarket produce."</div>
+      <div class="tcard-name">Dr. Arjun Mehta</div>
+      <div class="tcard-sub">Nutritionist · Mumbai</div>
+    </div>
+    <div class="tcard">
+      <div class="tcard-top">
+        <img class="tcard-avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Kavya">
+        <div class="tcard-stars">★★★★★</div>
+      </div>
+      <div class="tcard-quote">"Same-day delivery is a game changer for my busy household. The eco packaging is a bonus — everything arrives perfectly in compostable boxes."</div>
+      <div class="tcard-name">Kavya Nair</div>
+      <div class="tcard-sub">Verified Buyer · Bangalore</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-bg">
+  <div class="sec-header">
+    <div class="sec-header-left">
+      <div class="sec-label">Learn</div>
+      <h2 class="sec-title">From Our <em>Kitchen</em></h2>
+    </div>
+    <button class="btn-see-all">All articles →</button>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <img class="blog-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Blog">
+      <div class="blog-body">
+        <div class="blog-tag">Nutrition</div>
+        <div class="blog-title">Why Cold-Pressed Juice Retains 3× More Nutrients Than Blended</div>
+        <div class="blog-meta">May 12, 2026 · 4 min read</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <img class="blog-img" src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&q=80" alt="Blog">
+      <div class="blog-body">
+        <div class="blog-tag">Recipes</div>
+        <div class="blog-title">5 High-Protein Breakfast Bowls Using Our Seasonal Fruits</div>
+        <div class="blog-meta">April 28, 2026 · 6 min read</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <img class="blog-img" src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80" alt="Blog">
+      <div class="blog-body">
+        <div class="blog-tag">Sustainability</div>
+        <div class="blog-title">How We Reduced Food Miles by 68% Through Local Farm Partnerships</div>
+        <div class="blog-meta">April 15, 2026 · 5 min read</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <div class="sec-label">Stay Fresh</div>
+    <h2 class="sec-title">Get Early Access to<br><em>Seasonal Drops</em></h2>
+    <p>Join 48,000+ subscribers who get weekly tips, seasonal offers, and first access to new farm partners.</p>
+    <div class="nl-form">
+      <input class="nl-input" type="email" placeholder="Enter your email address…">
+      <button class="nl-btn">Subscribe →</button>
+    </div>
+    <p class="nl-fine">No spam, ever. Unsubscribe anytime. 🌿</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <span class="footer-logo">naturel<sup>®</sup></span>
+      <p class="footer-about">Bringing you the finest certified organic produce from trusted farm partners across India. Fresh, natural, and delivered with care since 2021.</p>
+      <div class="footer-social">
+        <button class="soc-btn">𝕏</button>
+        <button class="soc-btn">f</button>
+        <button class="soc-btn">in</button>
+        <button class="soc-btn">▶</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="#">Fresh Fruits</a></li>
+        <li><a href="#">Vegetables</a></li>
+        <li><a href="#">Nuts & Seeds</a></li>
+        <li><a href="#">Cold Pressed Juices</a></li>
+        <li><a href="#">Grains & Cereals</a></li>
+        <li><a href="#">Gift Hampers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Farms</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Press & Media</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">Help Center</a></li>
+        <li><a href="#">Track Your Order</a></li>
+        <li><a href="#">Returns & Refunds</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-app">
+      <h5>Get the App</h5>
+      <p>Order faster, track live, get app-only deals.</p>
+      <div class="app-badges">
+        <div class="app-badge">
+          <div class="app-badge-icon">🍎</div>
+          <div class="app-badge-text"><strong>App Store</strong><span>Download on iOS</span></div>
+        </div>
+        <div class="app-badge">
+          <div class="app-badge-icon">🤖</div>
+          <div class="app-badge-text"><strong>Google Play</strong><span>Get it on Android</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Naturel Private Limited. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Cookies</a>
+      <a href="#">Sitemap</a>
+    </div>
+    <div class="payment-icons">
+      <div class="pay-icon">UPI</div>
+      <div class="pay-icon">VISA</div>
+      <div class="pay-icon">MC</div>
+      <div class="pay-icon">AMEX</div>
+      <div class="pay-icon">COD</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-backdrop" id="cartBackdrop" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div class="cart-title">Your Cart (<span id="cartItemCount">0</span>)</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="cart-empty-icon">🛒</div>
+      <h4>Your cart is empty</h4>
+      <p>Add some fresh produce to get started!</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+    <div class="cart-subtotal"><span>Delivery</span><span id="deliveryFee">₹49</span></div>
+    <div class="cart-subtotal total"><span>Total</span><span id="cartTotal">₹49</span></div>
+    <button class="btn-checkout">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script>
+// ── CART STATE ──
+let cart = [];
+
+function getCard(btn){return btn.closest('.product-card')}
+
+function addToCart(btn){
+  const card = getCard(btn);
+  const id = card.dataset.id;
+  const name = card.dataset.name;
+  const price = parseInt(card.dataset.price);
+  const weight = card.dataset.weight;
+  const img = card.dataset.img;
+
+  btn.classList.add('added');
+  setTimeout(()=>btn.classList.remove('added'),600);
+
+  const existing = cart.find(i=>i.id===id);
+  if(existing){ existing.qty++; }
+  else{ cart.push({id,name,price,weight,img,qty:1}); }
+
+  updateCartUI();
+  showToast(name,img,price);
+}
+
+function updateCartUI(){
+  const total = cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartCount').textContent = total;
+  document.getElementById('cartItemCount').textContent = total;
+
+  const body = document.getElementById('cartBody');
+  const empty = document.getElementById('cartEmpty');
+  const footer = document.getElementById('cartFooter');
+
+  if(cart.length===0){
+    empty.style.display='block';
+    footer.style.display='none';
+    body.innerHTML='';
+    body.appendChild(empty);
+    return;
+  }
+  empty.style.display='none';
+  footer.style.display='block';
+
+  body.innerHTML='';
+  cart.forEach(item=>{
+    const div=document.createElement('div');
+    div.className='cart-item';
+    div.innerHTML=`
+      <img class="cart-item-img" src="${item.img}" alt="${item.name}">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-weight">${item.weight}</div>
+        <div class="cart-item-controls">
+          <button class="qty-btn" onclick="changeQty('${item.id}',-1)">−</button>
+          <span class="qty-num">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${item.id}',1)">+</button>
+          <button class="btn-remove" onclick="removeItem('${item.id}')">Remove</button>
+        </div>
+      </div>
+      <div class="cart-item-price">₹${item.price*item.qty}</div>
+    `;
+    body.appendChild(div);
+  });
+
+  const sub = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const delivery = sub>=499?0:49;
+  document.getElementById('cartSubtotal').textContent='₹'+sub;
+  document.getElementById('deliveryFee').textContent=delivery===0?'FREE':'₹'+delivery;
+  document.getElementById('cartTotal').textContent='₹'+(sub+delivery);
+}
+
+function changeQty(id,delta){
+  const item=cart.find(i=>i.id===id);
+  if(!item)return;
+  item.qty+=delta;
+  if(item.qty<=0)removeItem(id);
+  else updateCartUI();
+}
+function removeItem(id){
+  cart=cart.filter(i=>i.id!==id);
+  updateCartUI();
+}
+
+function openCart(){
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartBackdrop').classList.add('open');
+}
+function closeCart(){
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartBackdrop').classList.remove('open');
+}
+document.getElementById('cartToggle').addEventListener('click',openCart);
+
+// ── TOAST ──
+function showToast(name,img,price){
+  const wrap=document.getElementById('toastWrap');
+  const t=document.createElement('div');
+  t.className='toast';
+  t.innerHTML=`<img class="toast-img" src="${img}" alt=""><div class="toast-text"><strong>Added to cart!</strong><span>${name} · ₹${price}</span></div>`;
+  wrap.appendChild(t);
+  setTimeout(()=>{
+    t.classList.add('removing');
+    setTimeout(()=>t.remove(),350);
+  },2800);
+}
+
+// ── WISHLIST ──
+function toggleWish(btn){
+  btn.classList.toggle('active');
+  btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+}
+
+// ── CATEGORY CARDS ──
+function setActiveCat(el){
+  document.querySelectorAll('.cat-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ── NAV CATS ──
+document.querySelectorAll('.nav-cat').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-cat').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');
+  });
+});
+
+// ── NAV SCROLL SHADOW ──
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.boxShadow=
+    window.scrollY>10?'0 4px 20px rgba(28,14,2,.09)':'none';
+},{ passive:true });
+
+// ── SEARCH LIVE ──
+document.getElementById('searchInput').addEventListener('input',function(){
+  const q=this.value.toLowerCase();
+  document.querySelectorAll('.product-card').forEach(card=>{
+    const name=card.dataset.name.toLowerCase();
+    card.style.display=name.includes(q)||q===''?'flex':'none';
+  });
+});
+</script>
+</body>
+</html>
